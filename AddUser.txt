@@ -1,29 +1,66 @@
+' *****************************************************************************
+'' FILENAME: adduser
 '' *****************************************************************************
-
 '' ABOUT THIS FILE
-
 '' AUTHOR IDENTITY:
 '' Initials Name/Company
-
 '' -------- -----------------------------------------
-
 '' rw Rick Wagonner ABC INC
 '' REVISION HISTORY:
 '' Date/Initials Comments
-
 '' --------- -------------------------------
 '' rw Created for LoanApp 2.1
-
 ''*****************************************
-
 ''SCRIPT
-''Test cases for phase 1
-
+AddUser "jsmith", "password", "John", "Smith", "ABC", "416-456-0000", "jsmith@sample.com"
+AddUser "rnmith", "password", "Nancy", "Smith", "ABC", "416-456-0000", "jsmith@sample.com"
+ 
+Let's modify (changes shown in bold) it to: 
+ 
+'' *****************************************************************************
+'' ABOUT THIS FILE
+'' AUTHOR IDENTITY:
+'' Initials Name/Company
+'' -------- -----------------------------------------
+'' rw Rick Wagonner ABC INC
+'' REVISION HISTORY:
+'' Date/Initials Comments
+'' --------- -------------------------------
+'' rw Created for LoanApp 2.1
+''*****************************************
+''SCRIPT
 ''Valid input
 AddUser "dsmith", "password", "Peter", "Smith", "ABC", "416-456-0000", "jsmith@sample.com"
-
 ''Invalid input - missing Username
 AddUser "", "password", "Ron", "Smith", "ABC", "416-456-0000", "rsmith@sample.com"
-
 ''Invalid input - missing password
 AddUser "rnmith", "", "Ron", "Smith", "ABC", "416-456-0000", "rsmith@sample.com"
+  
+Save the file and close it
+Add the file to Staging area by executing command git add AddUser.txt
+Commit to Repository by executing command git commit -m "my second commit"
+After second thought we realize that one more test case will be appropriate, though
+Let's modify our AddUser file again (changes shown in bold below):
+   
+'' *****************************************************************************
+'' ABOUT THIS FILE
+'' AUTHOR IDENTITY:
+'' Initials Name/Company
+'' -------- -----------------------------------------
+'' rw Rick Wagonner ABC INC
+'' REVISION HISTORY:
+'' Date/Initials Comments
+'' --------- -------------------------------
+''rw Created for LoanApp 2.1
+''*****************************************
+''SCRIPT
+''Valid input
+AddUser "dsmith", "password", "Peter", "Smith", "ABC", "416-456-0000", "jsmith@sample.com"
+''Invalid input - missing Username
+AddUser "", "password", "Ron", "Smith", "ABC", "416-456-0000", "rsmith@sample.com"
+''Invalid input - missing password
+AddUser "rnmith", "", "Ron", "Smith", "ABC", "416-456-0000", "rsmith@sample.com"
+''Invalid input - user already exists
+AddUser "dsmith", "password", "Peter", "Smith", "ABC", "416-456-0000", "jsmith@sample.com"
+ 
+
